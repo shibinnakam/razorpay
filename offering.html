@@ -3,105 +3,622 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offering & Giving | Faith Community Church</title>
+    <title>Services & Shop | St. George Church</title>
+    <meta name="description" content="Book church services like Holy Qurbana and Novena, or purchase spiritual items like Rosary and Holy Bible from St. George Church.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ── Page-level layout ── */
+        .offering-page {
+            padding-top: 120px;
+            padding-bottom: 5rem;
+        }
+
+        .page-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-hero .badge {
+            margin-bottom: 1.2rem;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ── Section Headings ── */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-label h2 {
+            font-size: 1.8rem;
+            white-space: nowrap;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(212,175,55,0.4), transparent);
+            border-radius: 2px;
+        }
+
+        /* ── Item Cards Grid ── */
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 4rem;
+        }
+
+        /* ── Individual Item Card ── */
+        .item-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .item-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .item-card.selected {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow), var(--shadow-lg);
+        }
+
+        .item-card-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            padding: 2.5rem;
+            text-align: center;
+            font-size: 3.5rem;
+            position: relative;
+        }
+
+        .item-card-icon.shop-bg {
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+        }
+
+        .item-card-body {
+            padding: 1.5rem;
+        }
+
+        .item-card-body h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+            color: var(--primary-dark);
+        }
+
+        .item-card-body p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .item-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding: 1rem 1.5rem;
+        }
+
+        .item-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .item-price span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #e1e4e8;
+            background: transparent;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .qty-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+            transform: none;
+        }
+
+        .qty-display {
+            font-weight: 700;
+            font-size: 1rem;
+            min-width: 20px;
+            text-align: center;
+            color: var(--primary-dark);
+        }
+
+        /* Selected badge */
+        .selected-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--accent);
+            color: var(--primary-dark);
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: var(--transition);
+        }
+
+        .item-card.selected .selected-badge {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ── Cart Summary ── */
+        .cart-summary {
+            position: sticky;
+            bottom: 1.5rem;
+            background: var(--primary-dark);
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .cart-summary.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .cart-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .cart-icon {
+            font-size: 2rem;
+        }
+
+        .cart-details strong {
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .cart-details small {
+            opacity: 0.6;
+            font-size: 0.85rem;
+        }
+
+        .cart-total {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .cart-pay-btn {
+            background: var(--accent);
+            color: var(--primary-dark);
+            border: none;
+            padding: 14px 32px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .cart-pay-btn:hover {
+            background: #c19b2e;
+            transform: translateY(-2px);
+        }
+
+        /* ── Payment Modal overlay ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: var(--shadow-lg);
+            transform: scale(0.92);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-overlay.open .modal {
+            transform: scale(1);
+        }
+
+        .modal h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-divider {
+            height: 1px;
+            background: rgba(0,0,0,0.08);
+            margin: 1.2rem 0;
+        }
+
+        .order-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
+        }
+
+        .order-item-row .name {
+            font-weight: 600;
+        }
+
+        .order-item-row .sub {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+        }
+
+        .order-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0 0;
+            border-top: 2px solid var(--primary-dark);
+            margin-top: 0.5rem;
+        }
+
+        .order-total-row strong {
+            font-size: 1.2rem;
+        }
+
+        .order-total-row .total-amt {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .modal-name-field {
+            margin-top: 1.5rem;
+        }
+
+        .modal-name-field label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .modal-name-field input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid #e1e4e8;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .modal-name-field input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(15,23,42,0.08);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.8rem;
+        }
+
+        .modal-cancel {
+            flex: 1;
+            padding: 14px;
+            border-radius: 999px;
+            border: 2px solid #e1e4e8;
+            background: transparent;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-cancel:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: none;
+        }
+
+        .modal-confirm {
+            flex: 2;
+            padding: 14px;
+            border-radius: 999px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-confirm:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* ── Success Toast ── */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: #16a34a;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 3000;
+            box-shadow: 0 8px 32px rgba(22,163,74,0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 2.2rem; }
+            .items-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+            .cart-summary { flex-wrap: wrap; gap: 1rem; }
+            .cart-total { font-size: 1.4rem; }
+        }
+    </style>
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <div class="container nav-wrapper">
             <nav>
                 <a href="index.html" class="logo">
-                    <span style="color: var(--accent);">✝</span> Faith Community
+                    <span style="color: var(--accent);">✝</span> St. George Church
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="offering.html">Offering</a></li>
+                    <li><a href="offering.html" class="active">Services & Shop</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <a href="offering.html" class="btn btn-primary">Give Now</a>
+                <a href="offering.html" class="btn btn-primary btn-sm">Give Now</a>
             </nav>
         </div>
     </header>
 
-    <main class="container" style="padding-top: 150px; padding-bottom: 5rem;">
-        <div class="offering-grid">
-            <div class="donation-card">
-                <h2>Support Our Ministry</h2>
-                <p style="margin-bottom: 2rem;">Your generous support helps us continue our mission to serve the community and spread faith-driven action.</p>
-                <div class="card" style="border: 1px solid rgba(0,0,0,0.05);">
-                    <div class="form-group">
-                        <label>Select Category</label>
-                        <select id="category">
-                            <option value="tithe">Tithe</option>
-                            <option value="offering">General Offering</option>
-                            <option value="building">Building Fund</option>
-                            <option value="missions">Missions & Outreach</option>
-                            <option value="other">Other</option>
-                        </select>
+    <main class="container offering-page">
+
+        <!-- Hero -->
+        <div class="page-hero reveal">
+            <div class="badge">✝ St. George Church</div>
+            <h1>Services &amp; <span class="text-accent">Shop</span></h1>
+            <p>Book a church service or purchase sacred items. Your support strengthens our community and ministry.</p>
+        </div>
+
+        <!-- ═══ SERVICES SECTION ═══ -->
+        <div class="section-label reveal">
+            <h2>🙏 Church Services</h2>
+        </div>
+
+        <div class="items-grid" id="services-grid">
+
+            <!-- Holy Qurbana -->
+            <div class="item-card" data-id="holy-qurbana" data-name="Holy Qurbana" data-price="10" data-type="service">
+                <div class="selected-badge">Added ✓</div>
+                <div class="item-card-icon">⛪</div>
+                <div class="item-card-body">
+                    <h3>Holy Qurbana</h3>
+                    <p>Holy Eucharist (Qurbana) offered on your behalf or in memory of a loved one.</p>
+                </div>
+                <div class="item-card-footer">
+                    <div class="item-price">₹10 <span>/ offering</span></div>
+                    <div class="qty-control">
+                        <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                        <span class="qty-display">0</span>
+                        <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
                     </div>
-                    <div class="form-group">
-                        <label>Select Amount</label>
-                        <div class="amount-grid">
-                            <button class="amount-btn active" data-amount="10">$10</button>
-                            <button class="amount-btn" data-amount="25">$25</button>
-                            <button class="amount-btn" data-amount="50">$50</button>
-                            <button class="amount-btn" data-amount="100">$100</button>
-                            <button class="amount-btn" data-amount="250">$250</button>
-                            <button class="amount-btn" data-amount="other">Other</button>
-                        </div>
-                    </div>
-                    <div class="form-group" id="custom-amount-group" style="display: none;">
-                        <label>Custom Amount ($)</label>
-                        <input type="number" id="custom-amount" placeholder="Enter amount">
-                    </div>
-                    <div class="form-group">
-                        <label>Frequency</label>
-                        <div style="display: flex; gap: 1rem;">
-                            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; cursor: pointer;">
-                                <input type="radio" name="frequency" value="one-time" checked style="width: auto;"> One-time
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; cursor: pointer;">
-                                <input type="radio" name="frequency" value="monthly" style="width: auto;"> Monthly
-                            </label>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%; height: 55px;" id="proceed-btn">Proceed to Payment</button>
                 </div>
             </div>
 
-            <div style="background: var(--primary-dark); padding: 3rem; border-radius: 20px; color: var(--white);">
-                <h3 style="color: var(--accent); margin-bottom: 2rem;">Why We Give</h3>
-                <div style="display: grid; gap: 2rem;">
-                    <div>
-                        <h4 style="color: var(--white); margin-bottom: 0.5rem;">Sustaining Hope</h4>
-                        <p style="opacity: 0.8; font-size: 0.95rem;">Every gift helps maintain our sanctuary and support our diverse ministry programs.</p>
-                    </div>
-                    <div>
-                        <h4 style="color: var(--white); margin-bottom: 0.5rem;">Extending Help</h4>
-                        <p style="opacity: 0.8; font-size: 0.95rem;">A portion of every offering goes directly to local community outreach and global relief efforts.</p>
-                    </div>
-                    <div>
-                        <h4 style="color: var(--white); margin-bottom: 0.5rem;">A Heart for Worship</h4>
-                        <p style="opacity: 0.8; font-size: 0.95rem;">Giving is an act of worship and a tangible expression of our gratitude and trust.</p>
-                    </div>
+            <!-- Novena -->
+            <div class="item-card" data-id="novena" data-name="Novena" data-price="25" data-type="service">
+                <div class="selected-badge">Added ✓</div>
+                <div class="item-card-icon">🕯️</div>
+                <div class="item-card-body">
+                    <h3>Novena</h3>
+                    <p>Nine days of special prayers and intercessions offered for your intentions.</p>
                 </div>
-                <div style="margin-top: 3rem; padding: 2rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px; text-align: center;">
-                    <p style="font-weight: 600; margin-bottom: 1rem;">Security First</p>
-                    <p style="font-size: 0.85rem; opacity: 0.7;">Your payment is securely processed. We do not store your credit card information directly.</p>
+                <div class="item-card-footer">
+                    <div class="item-price">₹25 <span>/ novena</span></div>
+                    <div class="qty-control">
+                        <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                        <span class="qty-display">0</span>
+                        <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                    </div>
                 </div>
             </div>
+
         </div>
+
+        <!-- ═══ SHOP SECTION ═══ -->
+        <div class="section-label reveal">
+            <h2>📿 Sacred Shop</h2>
+        </div>
+
+        <div class="items-grid" id="shop-grid">
+
+            <!-- Rosary -->
+            <div class="item-card" data-id="rosary" data-name="Rosary" data-price="10" data-type="product">
+                <div class="selected-badge">Added ✓</div>
+                <div class="item-card-icon shop-bg">📿</div>
+                <div class="item-card-body">
+                    <h3>Holy Rosary</h3>
+                    <p>Beautiful blessed rosary beads, hand-crafted and consecrated by our priests.</p>
+                </div>
+                <div class="item-card-footer">
+                    <div class="item-price">₹10 <span>/ piece</span></div>
+                    <div class="qty-control">
+                        <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                        <span class="qty-display">0</span>
+                        <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Holy Bible -->
+            <div class="item-card" data-id="holy-bible" data-name="Holy Bible" data-price="100" data-type="product">
+                <div class="selected-badge">Added ✓</div>
+                <div class="item-card-icon shop-bg">📖</div>
+                <div class="item-card-body">
+                    <h3>Holy Bible</h3>
+                    <p>Malayalam / English Holy Bible — hardcover edition blessed and distributed by the church.</p>
+                </div>
+                <div class="item-card-footer">
+                    <div class="item-price">₹100 <span>/ copy</span></div>
+                    <div class="qty-control">
+                        <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                        <span class="qty-display">0</span>
+                        <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ═══ STICKY CART BAR ═══ -->
+        <div class="cart-summary" id="cart-summary">
+            <div class="cart-info">
+                <div class="cart-icon">🛒</div>
+                <div class="cart-details">
+                    <strong id="cart-items-label">0 items selected</strong>
+                    <small>Tap Review &amp; Pay to proceed</small>
+                </div>
+            </div>
+            <div class="cart-total" id="cart-total-display">₹0</div>
+            <button class="cart-pay-btn" id="review-pay-btn">Review &amp; Pay →</button>
+        </div>
+
     </main>
+
+    <!-- ═══ PAYMENT REVIEW MODAL ═══ -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+            <h3 id="modal-title">Review Your Order</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Verify your selections before proceeding to payment.</p>
+            <div class="modal-divider"></div>
+
+            <div id="modal-order-items">
+                <!-- Injected by JS -->
+            </div>
+
+            <div class="order-total-row">
+                <strong>Total</strong>
+                <span class="total-amt" id="modal-total">₹0</span>
+            </div>
+
+            <div class="modal-name-field">
+                <label for="payer-name">Your Name <span style="color:#ef4444">*</span></label>
+                <input type="text" id="payer-name" placeholder="Enter your full name">
+            </div>
+
+            <div class="modal-actions">
+                <button class="modal-cancel" id="modal-cancel-btn">Cancel</button>
+                <button class="modal-confirm" id="modal-confirm-btn">✝ Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ SUCCESS TOAST ═══ -->
+    <div class="toast" id="success-toast">✅ Thank you! Your payment is being processed.</div>
 
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="footer-logo">✝ Faith Community</div>
+                    <div class="footer-logo">✝ St. George Church</div>
                     <p style="opacity: 0.7;">A place of hope, a place of peace, a place of community.</p>
                 </div>
                 <div class="footer-links">
@@ -109,7 +626,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="offering.html">Make an Offering</a></li>
+                        <li><a href="offering.html">Services &amp; Shop</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
@@ -123,16 +640,171 @@
                 </div>
                 <div class="footer-links">
                     <h4>Connect</h4>
-                    <p style="opacity: 0.7;">123 Faith Street, Grace City</p>
-                    <p style="opacity: 0.7;">contact@faithcommunity.org</p>
-                    <p style="opacity: 0.7;">+1 (555) 123-4567</p>
+                    <p style="opacity: 0.7;">St. George Church, Kerala</p>
+                    <p style="opacity: 0.7;">contact@stgeorgechurch.org</p>
+                    <p style="opacity: 0.7;">+91 98765 43210</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Faith Community Church. All rights reserved.</p>
+                <p>&copy; 2026 St. George Church. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
     <script type="module" src="/main.js"></script>
+    <script>
+    // ──────────────────────────────────────────────
+    //  Offering Page — Services & Shop Logic
+    // ──────────────────────────────────────────────
+    (function () {
+        const cart = {}; // { itemId: { name, price, qty, type } }
+
+        // ── Quantity Controls ──
+        document.querySelectorAll('.item-card').forEach(card => {
+            const id    = card.dataset.id;
+            const name  = card.dataset.name;
+            const price = parseInt(card.dataset.price, 10);
+            const type  = card.dataset.type;
+
+            const qtyDisplay = card.querySelector('.qty-display');
+            const incBtn     = card.querySelector('[data-action="inc"]');
+            const decBtn     = card.querySelector('[data-action="dec"]');
+
+            function updateCard(qty) {
+                qtyDisplay.textContent = qty;
+                if (qty > 0) {
+                    cart[id] = { name, price, qty, type };
+                    card.classList.add('selected');
+                } else {
+                    delete cart[id];
+                    card.classList.remove('selected');
+                }
+                updateCartBar();
+            }
+
+            incBtn.addEventListener('click', e => {
+                e.stopPropagation();
+                const current = cart[id] ? cart[id].qty : 0;
+                updateCard(current + 1);
+            });
+
+            decBtn.addEventListener('click', e => {
+                e.stopPropagation();
+                const current = cart[id] ? cart[id].qty : 0;
+                if (current > 0) updateCard(current - 1);
+            });
+        });
+
+        // ── Cart Bar ──
+        const cartSummary     = document.getElementById('cart-summary');
+        const cartItemsLabel  = document.getElementById('cart-items-label');
+        const cartTotalDisp   = document.getElementById('cart-total-display');
+
+        function updateCartBar() {
+            const items = Object.values(cart);
+            const totalQty  = items.reduce((s, i) => s + i.qty, 0);
+            const totalAmt  = items.reduce((s, i) => s + i.price * i.qty, 0);
+
+            cartItemsLabel.textContent = `${totalQty} item${totalQty !== 1 ? 's' : ''} selected`;
+            cartTotalDisp.textContent  = `₹${totalAmt}`;
+
+            if (totalQty > 0) {
+                cartSummary.classList.add('visible');
+            } else {
+                cartSummary.classList.remove('visible');
+            }
+        }
+
+        // ── Modal ──
+        const modalOverlay   = document.getElementById('modal-overlay');
+        const modalOrderItems= document.getElementById('modal-order-items');
+        const modalTotal     = document.getElementById('modal-total');
+        const reviewPayBtn   = document.getElementById('review-pay-btn');
+        const cancelBtn      = document.getElementById('modal-cancel-btn');
+        const confirmBtn     = document.getElementById('modal-confirm-btn');
+        const payerNameInput = document.getElementById('payer-name');
+
+        function openModal() {
+            const items = Object.values(cart);
+            if (items.length === 0) return;
+
+            // Build order rows
+            modalOrderItems.innerHTML = items.map(item => `
+                <div class="order-item-row">
+                    <div>
+                        <div class="name">${item.name}</div>
+                        <div class="sub">${item.type === 'service' ? 'Church Service' : 'Sacred Item'} × ${item.qty}</div>
+                    </div>
+                    <strong>₹${item.price * item.qty}</strong>
+                </div>
+            `).join('');
+
+            const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+            modalTotal.textContent = `₹${total}`;
+            payerNameInput.value = '';
+            modalOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        reviewPayBtn.addEventListener('click', openModal);
+        cancelBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', e => {
+            if (e.target === modalOverlay) closeModal();
+        });
+
+        // ── Confirm Payment ──
+        confirmBtn.addEventListener('click', () => {
+            const name = payerNameInput.value.trim();
+            if (!name) {
+                payerNameInput.focus();
+                payerNameInput.style.borderColor = '#ef4444';
+                setTimeout(() => payerNameInput.style.borderColor = '', 1500);
+                return;
+            }
+
+            const items = Object.values(cart);
+            const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+
+            // Log order for Razorpay integration
+            console.log('Order:', { name, items, total });
+
+            closeModal();
+            showToast(`Thank you, ${name}! Redirecting to payment...`);
+
+            // ── Razorpay integration hook ──
+            // Uncomment and configure once you have a Razorpay key:
+            /*
+            const options = {
+                key: 'YOUR_RAZORPAY_KEY_HERE',
+                amount: total * 100,           // in paise
+                currency: 'INR',
+                name: 'St. George Church',
+                description: items.map(i => `${i.name} x${i.qty}`).join(', '),
+                handler: function(response) {
+                    showToast('Payment successful! ID: ' + response.razorpay_payment_id);
+                },
+                prefill: { name },
+                theme: { color: '#0f172a' }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
+            */
+        });
+
+        // ── Success Toast ──
+        const toastEl = document.getElementById('success-toast');
+
+        function showToast(msg) {
+            toastEl.textContent = msg;
+            toastEl.classList.add('show');
+            setTimeout(() => toastEl.classList.remove('show'), 4000);
+        }
+    })();
+    </script>
 </body>
 </html>
