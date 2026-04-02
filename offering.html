@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offering & Giving | Faith Community Church</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span style="color: var(--accent);">✝</span> Faith Community
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="offering.html">Offering</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="offering.html" class="btn btn-primary">Give Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 150px; padding-bottom: 5rem;">
+        <div class="offering-grid">
+            <div class="donation-card">
+                <h2>Support Our Ministry</h2>
+                <p style="margin-bottom: 2rem;">Your generous support helps us continue our mission to serve the community and spread faith-driven action.</p>
+                <div class="card" style="border: 1px solid rgba(0,0,0,0.05);">
+                    <div class="form-group">
+                        <label>Select Category</label>
+                        <select id="category">
+                            <option value="tithe">Tithe</option>
+                            <option value="offering">General Offering</option>
+                            <option value="building">Building Fund</option>
+                            <option value="missions">Missions & Outreach</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Amount</label>
+                        <div class="amount-grid">
+                            <button class="amount-btn active" data-amount="10">$10</button>
+                            <button class="amount-btn" data-amount="25">$25</button>
+                            <button class="amount-btn" data-amount="50">$50</button>
+                            <button class="amount-btn" data-amount="100">$100</button>
+                            <button class="amount-btn" data-amount="250">$250</button>
+                            <button class="amount-btn" data-amount="other">Other</button>
+                        </div>
+                    </div>
+                    <div class="form-group" id="custom-amount-group" style="display: none;">
+                        <label>Custom Amount ($)</label>
+                        <input type="number" id="custom-amount" placeholder="Enter amount">
+                    </div>
+                    <div class="form-group">
+                        <label>Frequency</label>
+                        <div style="display: flex; gap: 1rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; cursor: pointer;">
+                                <input type="radio" name="frequency" value="one-time" checked style="width: auto;"> One-time
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; cursor: pointer;">
+                                <input type="radio" name="frequency" value="monthly" style="width: auto;"> Monthly
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; height: 55px;" id="proceed-btn">Proceed to Payment</button>
+                </div>
+            </div>
+
+            <div style="background: var(--primary-dark); padding: 3rem; border-radius: 20px; color: var(--white);">
+                <h3 style="color: var(--accent); margin-bottom: 2rem;">Why We Give</h3>
+                <div style="display: grid; gap: 2rem;">
+                    <div>
+                        <h4 style="color: var(--white); margin-bottom: 0.5rem;">Sustaining Hope</h4>
+                        <p style="opacity: 0.8; font-size: 0.95rem;">Every gift helps maintain our sanctuary and support our diverse ministry programs.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--white); margin-bottom: 0.5rem;">Extending Help</h4>
+                        <p style="opacity: 0.8; font-size: 0.95rem;">A portion of every offering goes directly to local community outreach and global relief efforts.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--white); margin-bottom: 0.5rem;">A Heart for Worship</h4>
+                        <p style="opacity: 0.8; font-size: 0.95rem;">Giving is an act of worship and a tangible expression of our gratitude and trust.</p>
+                    </div>
+                </div>
+                <div style="margin-top: 3rem; padding: 2rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px; text-align: center;">
+                    <p style="font-weight: 600; margin-bottom: 1rem;">Security First</p>
+                    <p style="font-size: 0.85rem; opacity: 0.7;">Your payment is securely processed. We do not store your credit card information directly.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">✝ Faith Community</div>
+                    <p style="opacity: 0.7;">A place of hope, a place of peace, a place of community.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="offering.html">Make an Offering</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="policy.html">Privacy Policy</a></li>
+                        <li><a href="policy.html">Terms of Service</a></li>
+                        <li><a href="policy.html">Public Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <p style="opacity: 0.7;">123 Faith Street, Grace City</p>
+                    <p style="opacity: 0.7;">contact@faithcommunity.org</p>
+                    <p style="opacity: 0.7;">+1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Faith Community Church. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
