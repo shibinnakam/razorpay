@@ -3,447 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services & Shop | St. George Church</title>
-    <meta name="description" content="Book church services like Holy Qurbana and Novena, or purchase spiritual items like Rosary and Holy Bible from St. George Church.">
+    <title>Services &amp; Sacred Shop | St. George Orthodox Church</title>
+    <meta name="description" content="Book church services like Holy Qurbana and Novena, or purchase sacred items like Holy Bible and Rosary from St. George Orthodox Church, Kerala.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
     <style>
-        /* ── Page-level layout ── */
-        .offering-page {
-            padding-top: 120px;
-            padding-bottom: 5rem;
-        }
-
-        .page-hero {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .page-hero .badge {
-            margin-bottom: 1.2rem;
-        }
-
-        .page-hero h1 {
-            font-size: 3rem;
-            letter-spacing: -1px;
-            margin-bottom: 1rem;
-        }
-
-        .page-hero p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        /* ── Section Headings ── */
-        .section-label {
+        /* ── Tabs ── */
+        .tab-nav {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .section-label h2 {
-            font-size: 1.8rem;
-            white-space: nowrap;
-        }
-
-        .section-label::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, rgba(212,175,55,0.4), transparent);
-            border-radius: 2px;
-        }
-
-        /* ── Item Cards Grid ── */
-        .items-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.8rem;
-            margin-bottom: 4rem;
-        }
-
-        /* ── Individual Item Card ── */
-        .item-card {
+            gap: 0.8rem;
+            margin-bottom: 3rem;
             background: var(--white);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            border: 2px solid transparent;
-            transition: var(--transition);
-            position: relative;
-            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-sm);
+            width: fit-content;
         }
 
-        .item-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent);
-        }
-
-        .item-card.selected {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px var(--accent-glow), var(--shadow-lg);
-        }
-
-        .item-card-icon {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            padding: 2.5rem;
-            text-align: center;
-            font-size: 3.5rem;
-            position: relative;
-        }
-
-        .item-card-icon.shop-bg {
-            background: linear-gradient(135deg, #7c3aed, #4f46e5);
-        }
-
-        .item-card-body {
-            padding: 1.5rem;
-        }
-
-        .item-card-body h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.4rem;
-            color: var(--primary-dark);
-        }
-
-        .item-card-body p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 1.2rem;
-        }
-
-        .item-card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid rgba(0,0,0,0.06);
-            padding: 1rem 1.5rem;
-        }
-
-        .item-price {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-        }
-
-        .item-price span {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        .qty-control {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .qty-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid #e1e4e8;
+        .tab-btn {
+            padding: 10px 28px;
+            border-radius: var(--radius-full);
+            border: none;
             background: transparent;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-muted);
             cursor: pointer;
-            padding: 0;
+            transition: var(--transition);
+            font-family: inherit;
             display: flex;
             align-items: center;
-            justify-content: center;
-            transition: var(--transition);
+            gap: 8px;
         }
 
-        .qty-btn:hover {
+        .tab-btn.active {
             background: var(--primary);
-            border-color: var(--primary);
             color: var(--white);
-            transform: none;
+            box-shadow: var(--shadow-sm);
         }
 
-        .qty-display {
-            font-weight: 700;
-            font-size: 1rem;
-            min-width: 20px;
-            text-align: center;
-            color: var(--primary-dark);
+        .tab-btn.active.shop-tab {
+            background: var(--shop-color);
         }
 
-        /* Selected badge */
-        .selected-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--accent);
-            color: var(--primary-dark);
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 999px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: var(--transition);
-        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
 
-        .item-card.selected .selected-badge {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* ── Cart Summary ── */
-        .cart-summary {
-            position: sticky;
-            bottom: 1.5rem;
-            background: var(--primary-dark);
-            color: var(--white);
+        /* ── Offering Intro Banner ── */
+        .offering-intro {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2a4a 100%);
             border-radius: var(--radius-lg);
-            padding: 1.5rem 2rem;
+            padding: 2.5rem 3rem;
+            color: var(--white);
+            margin-bottom: 3rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 2rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-            z-index: 100;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
+            position: relative;
+            overflow: hidden;
         }
-
-        .cart-summary.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
+        .offering-intro::before {
+            content: '✝';
+            position: absolute;
+            right: 3rem;
+            font-size: 10rem;
+            opacity: 0.05;
+            line-height: 1;
+            top: 50%;
+            transform: translateY(-50%);
         }
+        .offering-intro h2 { color: var(--white); font-size: 1.6rem; margin-bottom: 0.5rem; }
+        .offering-intro p { opacity: 0.75; font-size: 0.95rem; max-width: 480px; }
 
-        .cart-info {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .cart-icon {
-            font-size: 2rem;
-        }
-
-        .cart-details strong {
-            font-size: 1.1rem;
-            display: block;
-        }
-
-        .cart-details small {
-            opacity: 0.6;
-            font-size: 0.85rem;
-        }
-
-        .cart-total {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--accent);
-        }
-
-        .cart-pay-btn {
-            background: var(--accent);
-            color: var(--primary-dark);
-            border: none;
-            padding: 14px 32px;
-            border-radius: 999px;
-            font-weight: 800;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-
-        .cart-pay-btn:hover {
-            background: #c19b2e;
-            transform: translateY(-2px);
-        }
-
-        /* ── Payment Modal overlay ── */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(6px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.open {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .modal {
-            background: var(--white);
+        .shop-intro {
+            background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%);
             border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            max-width: 480px;
-            width: 90%;
-            box-shadow: var(--shadow-lg);
-            transform: scale(0.92);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .modal-overlay.open .modal {
-            transform: scale(1);
-        }
-
-        .modal h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-divider {
-            height: 1px;
-            background: rgba(0,0,0,0.08);
-            margin: 1.2rem 0;
-        }
-
-        .order-item-row {
+            padding: 2.5rem 3rem;
+            color: var(--white);
+            margin-bottom: 3rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0.6rem 0;
-            font-size: 0.95rem;
-        }
-
-        .order-item-row .name {
-            font-weight: 600;
-        }
-
-        .order-item-row .sub {
-            color: var(--text-muted);
-            font-size: 0.82rem;
-        }
-
-        .order-total-row {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0 0;
-            border-top: 2px solid var(--primary-dark);
-            margin-top: 0.5rem;
+            gap: 2rem;
+            position: relative;
+            overflow: hidden;
         }
-
-        .order-total-row strong {
-            font-size: 1.2rem;
+        .shop-intro::before {
+            content: '📿';
+            position: absolute;
+            right: 3rem;
+            font-size: 8rem;
+            opacity: 0.15;
+            line-height: 1;
+            top: 50%;
+            transform: translateY(-50%);
         }
+        .shop-intro h2 { color: var(--white); font-size: 1.6rem; margin-bottom: 0.5rem; }
+        .shop-intro p { opacity: 0.75; font-size: 0.95rem; max-width: 480px; }
 
-        .order-total-row .total-amt {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-dark);
+        /* ── Info strip ── */
+        .info-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-bottom: 3rem;
         }
-
-        .modal-name-field {
-            margin-top: 1.5rem;
-        }
-
-        .modal-name-field label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            display: block;
-        }
-
-        .modal-name-field input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1.5px solid #e1e4e8;
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .modal-name-field input:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(15,23,42,0.08);
-        }
-
-        .modal-actions {
+        .info-strip-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.5rem;
+            box-shadow: var(--shadow-sm);
             display: flex;
+            align-items: center;
             gap: 1rem;
-            margin-top: 1.8rem;
+            border: 1px solid rgba(0,0,0,0.05);
         }
-
-        .modal-cancel {
-            flex: 1;
-            padding: 14px;
-            border-radius: 999px;
-            border: 2px solid #e1e4e8;
-            background: transparent;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .modal-cancel:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: none;
-        }
-
-        .modal-confirm {
-            flex: 2;
-            padding: 14px;
-            border-radius: 999px;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .modal-confirm:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        /* ── Success Toast ── */
-        .toast {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%) translateY(80px);
-            background: #16a34a;
-            color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            z-index: 3000;
-            box-shadow: 0 8px 32px rgba(22,163,74,0.4);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-        }
+        .info-strip-card .is-icon { font-size: 1.8rem; }
+        .info-strip-card strong { display: block; font-size: 0.9rem; color: var(--primary-dark); }
+        .info-strip-card small { color: var(--text-muted); font-size: 0.8rem; }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .offering-intro, .shop-intro { flex-direction: column; align-items: flex-start; padding: 2rem; }
+            .info-strip { grid-template-columns: 1fr; }
+            .tab-nav { width: 100%; justify-content: center; }
             .page-hero h1 { font-size: 2.2rem; }
             .items-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
             .cart-summary { flex-wrap: wrap; gap: 1rem; }
@@ -453,119 +139,324 @@
 </head>
 <body>
     <header id="main-header">
-        <div class="container nav-wrapper">
-            <nav>
+        <div class="container">
+            <nav class="nav-wrapper">
                 <a href="index.html" class="logo">
-                    <span style="color: var(--accent);">✝</span> St. George Church
+                    <span class="logo-cross">✝</span>
+                    <span class="logo-text">St. George <span class="logo-sub">Orthodox Church</span></span>
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="offering.html" class="active">Services & Shop</a></li>
+                    <li><a href="offering.html" class="active">Services &amp; Shop</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <a href="offering.html" class="btn btn-primary btn-sm">Give Now</a>
+                <div class="header-actions">
+                    <a href="offering.html" class="btn btn-accent btn-sm">🛒 Services &amp; Shop</a>
+                    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+                        <span></span><span></span>
+                    </button>
+                </div>
             </nav>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="offering.html">Services &amp; Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </header>
 
     <main class="container offering-page">
 
-        <!-- Hero -->
+        <!-- Page Hero -->
         <div class="page-hero reveal">
-            <div class="badge">✝ St. George Church</div>
-            <h1>Services &amp; <span class="text-accent">Shop</span></h1>
-            <p>Book a church service or purchase sacred items. Your support strengthens our community and ministry.</p>
+            <div class="badge">✝ St. George Orthodox Church</div>
+            <h1>Church Services &amp; <span class="playfair text-accent">Sacred Shop</span></h1>
+            <p>Book a service offered by our clergy, or purchase blessed sacred items — all proceeds support the ministry of our parish.</p>
         </div>
 
-        <!-- ═══ SERVICES SECTION ═══ -->
-        <div class="section-label reveal">
-            <h2>🙏 Church Services</h2>
+        <!-- Info Strip -->
+        <div class="info-strip reveal">
+            <div class="info-strip-card">
+                <div class="is-icon">🔒</div>
+                <div>
+                    <strong>Secure Payments</strong>
+                    <small>Powered by Razorpay — 100% safe</small>
+                </div>
+            </div>
+            <div class="info-strip-card">
+                <div class="is-icon">⚡</div>
+                <div>
+                    <strong>Instant Confirmation</strong>
+                    <small>You'll receive a receipt via email</small>
+                </div>
+            </div>
+            <div class="info-strip-card">
+                <div class="is-icon">✝</div>
+                <div>
+                    <strong>Supports the Parish</strong>
+                    <small>Every rupee goes to church ministry</small>
+                </div>
+            </div>
         </div>
 
-        <div class="items-grid" id="services-grid">
-
-            <!-- Holy Qurbana -->
-            <div class="item-card" data-id="holy-qurbana" data-name="Holy Qurbana" data-price="10" data-type="service">
-                <div class="selected-badge">Added ✓</div>
-                <div class="item-card-icon">⛪</div>
-                <div class="item-card-body">
-                    <h3>Holy Qurbana</h3>
-                    <p>Holy Eucharist (Qurbana) offered on your behalf or in memory of a loved one.</p>
-                </div>
-                <div class="item-card-footer">
-                    <div class="item-price">₹10 <span>/ offering</span></div>
-                    <div class="qty-control">
-                        <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
-                        <span class="qty-display">0</span>
-                        <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Novena -->
-            <div class="item-card" data-id="novena" data-name="Novena" data-price="25" data-type="service">
-                <div class="selected-badge">Added ✓</div>
-                <div class="item-card-icon">🕯️</div>
-                <div class="item-card-body">
-                    <h3>Novena</h3>
-                    <p>Nine days of special prayers and intercessions offered for your intentions.</p>
-                </div>
-                <div class="item-card-footer">
-                    <div class="item-price">₹25 <span>/ novena</span></div>
-                    <div class="qty-control">
-                        <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
-                        <span class="qty-display">0</span>
-                        <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
-                    </div>
-                </div>
-            </div>
-
+        <!-- Tab Navigation -->
+        <div class="tab-nav reveal">
+            <button class="tab-btn active" id="tab-services-btn" onclick="switchTab('services')">
+                ⛪ Church Services
+            </button>
+            <button class="tab-btn" id="tab-shop-btn" onclick="switchTab('shop')">
+                📿 Sacred Shop
+            </button>
         </div>
 
-        <!-- ═══ SHOP SECTION ═══ -->
-        <div class="section-label reveal">
-            <h2>📿 Sacred Shop</h2>
+        <!-- ═══ SERVICES TAB ═══ -->
+        <div class="tab-content active" id="tab-services">
+            <div class="offering-intro">
+                <div>
+                    <h2>🙏 Book a Church Service</h2>
+                    <p>Request our clergy to offer specific prayers and services on your behalf, in memory of a loved one, or for a special intention. Each service is faithfully fulfilled by our ordained priests.</p>
+                </div>
+                <a href="contact.html" class="btn btn-accent" style="white-space: nowrap; flex-shrink: 0;">Have Questions?</a>
+            </div>
+
+            <div class="items-grid" id="services-grid">
+
+                <!-- Holy Qurbana -->
+                <div class="item-card" data-id="holy-qurbana" data-name="Holy Qurbana" data-price="10" data-type="service">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon">⛪</div>
+                    <div class="item-card-body">
+                        <h3>Holy Qurbana</h3>
+                        <p>The Holy Eucharist (Qurbana) offered on your behalf, in memory of a loved one, or for a specific intention.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹10 <span>/ offering</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Novena -->
+                <div class="item-card" data-id="novena" data-name="Novena" data-price="25" data-type="service">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon">🕯️</div>
+                    <div class="item-card-body">
+                        <h3>Novena</h3>
+                        <p>Nine consecutive days of special prayers and intercessions offered by our clergy for your specific intention.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹25 <span>/ novena</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memorial Service -->
+                <div class="item-card" data-id="memorial" data-name="Memorial Service (Perunnal)" data-price="50" data-type="service">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon">🕊️</div>
+                    <div class="item-card-body">
+                        <h3>Memorial Service</h3>
+                        <p>A special commemoration service (Shradhaanjali) offered for the souls of departed faithful family members.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹50 <span>/ service</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blessing of Home -->
+                <div class="item-card" data-id="home-blessing" data-name="Blessing of Home" data-price="100" data-type="service">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon">🏠</div>
+                    <div class="item-card-body">
+                        <h3>Blessing of Home</h3>
+                        <p>Our priest will visit your home to offer the traditional blessing prayers — sanctifying your family's dwelling.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹100 <span>/ visit</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Intercession -->
+                <div class="item-card" data-id="intercession" data-name="Special Intercession Prayers" data-price="15" data-type="service">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon">🙏</div>
+                    <div class="item-card-body">
+                        <h3>Special Intercession</h3>
+                        <p>Dedicated intercessory prayers for healing, protection, or any personal intention at the Holy Altar.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹15 <span>/ request</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feast Day Offering -->
+                <div class="item-card" data-id="feast-offering" data-name="Feast Day Offering" data-price="200" data-type="service">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon">🎉</div>
+                    <div class="item-card-body">
+                        <h3>Feast Day Offering</h3>
+                        <p>Sponsor part of our annual Perunnal feast celebration — a privilege offered to devoted parishioners and families.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹200 <span>/ sponsor</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <div class="items-grid" id="shop-grid">
-
-            <!-- Rosary -->
-            <div class="item-card" data-id="rosary" data-name="Rosary" data-price="10" data-type="product">
-                <div class="selected-badge">Added ✓</div>
-                <div class="item-card-icon shop-bg">📿</div>
-                <div class="item-card-body">
-                    <h3>Holy Rosary</h3>
-                    <p>Beautiful blessed rosary beads, hand-crafted and consecrated by our priests.</p>
+        <!-- ═══ SHOP TAB ═══ -->
+        <div class="tab-content" id="tab-shop">
+            <div class="shop-intro">
+                <div>
+                    <h2>📿 Sacred Items Shop</h2>
+                    <p>Purchase authentic blessed items directly from the church. Items are consecrated by our priests and beautifully packaged for gifting. Delivery available within Kerala.</p>
                 </div>
-                <div class="item-card-footer">
-                    <div class="item-price">₹10 <span>/ piece</span></div>
-                    <div class="qty-control">
-                        <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
-                        <span class="qty-display">0</span>
-                        <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
-                    </div>
-                </div>
+                <a href="contact.html" class="btn" style="background: rgba(255,255,255,0.2); color: var(--white); border: 2px solid rgba(255,255,255,0.4); white-space: nowrap; flex-shrink: 0;">Bulk Orders?</a>
             </div>
 
-            <!-- Holy Bible -->
-            <div class="item-card" data-id="holy-bible" data-name="Holy Bible" data-price="100" data-type="product">
-                <div class="selected-badge">Added ✓</div>
-                <div class="item-card-icon shop-bg">📖</div>
-                <div class="item-card-body">
-                    <h3>Holy Bible</h3>
-                    <p>Malayalam / English Holy Bible — hardcover edition blessed and distributed by the church.</p>
-                </div>
-                <div class="item-card-footer">
-                    <div class="item-price">₹100 <span>/ copy</span></div>
-                    <div class="qty-control">
-                        <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
-                        <span class="qty-display">0</span>
-                        <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+            <div class="items-grid" id="shop-grid">
+
+                <!-- Holy Rosary -->
+                <div class="item-card" data-id="rosary" data-name="Holy Rosary" data-price="10" data-type="product">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon shop-bg">📿</div>
+                    <div class="item-card-body">
+                        <h3>Holy Rosary</h3>
+                        <p>Beautiful blessed rosary beads, hand-crafted and consecrated by our priests for daily devotion and prayer.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹10 <span>/ piece</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+                <!-- Holy Bible -->
+                <div class="item-card" data-id="holy-bible" data-name="Holy Bible" data-price="100" data-type="product">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon shop-bg">📖</div>
+                    <div class="item-card-body">
+                        <h3>Holy Bible</h3>
+                        <p>Malayalam / English hardcover Holy Bible — blessed and distributed by the church. Perfect for homes and families.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹100 <span>/ copy</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prayer Book -->
+                <div class="item-card" data-id="prayer-book" data-name="Orthodox Prayer Book" data-price="50" data-type="product">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon shop-bg">📕</div>
+                    <div class="item-card-body">
+                        <h3>Orthodox Prayer Book</h3>
+                        <p>Traditional Malankara Orthodox prayer book in Malayalam with daily morning and evening prayers.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹50 <span>/ copy</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Holy Cross -->
+                <div class="item-card" data-id="holy-cross" data-name="Blessed Holy Cross" data-price="75" data-type="product">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon shop-bg">✝</div>
+                    <div class="item-card-body">
+                        <h3>Blessed Holy Cross</h3>
+                        <p>A hand-crafted wooden cross blessed by our Vicar — ideal for homes, offices, and as a devotional gift.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹75 <span>/ piece</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frankincense -->
+                <div class="item-card" data-id="frankincense" data-name="Church Frankincense" data-price="30" data-type="product">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon shop-bg">🌿</div>
+                    <div class="item-card-body">
+                        <h3>Church Frankincense</h3>
+                        <p>Pure frankincense (Kundurukku) as used in our liturgical services — for home prayer and worship.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹30 <span>/ pack</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blessed Candles -->
+                <div class="item-card" data-id="candles" data-name="Blessed Church Candles" data-price="20" data-type="product">
+                    <div class="selected-badge">Added ✓</div>
+                    <div class="item-card-icon shop-bg">🕯️</div>
+                    <div class="item-card-body">
+                        <h3>Blessed Church Candles</h3>
+                        <p>Pack of 6 beeswax candles blessed in the church — for prayer altars, feast days, and memorial services.</p>
+                    </div>
+                    <div class="item-card-footer">
+                        <div class="item-price">₹20 <span>/ pack of 6</span></div>
+                        <div class="qty-control">
+                            <button class="qty-btn" data-action="dec" aria-label="Decrease">−</button>
+                            <span class="qty-display">0</span>
+                            <button class="qty-btn" data-action="inc" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
         <!-- ═══ STICKY CART BAR ═══ -->
@@ -586,8 +477,8 @@
     <!-- ═══ PAYMENT REVIEW MODAL ═══ -->
     <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal">
-            <h3 id="modal-title">Review Your Order</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Verify your selections before proceeding to payment.</p>
+            <h3 id="modal-title">✝ Review Your Order</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">Verify your selections before proceeding to payment.</p>
             <div class="modal-divider"></div>
 
             <div id="modal-order-items">
@@ -595,13 +486,18 @@
             </div>
 
             <div class="order-total-row">
-                <strong>Total</strong>
+                <strong>Total Amount</strong>
                 <span class="total-amt" id="modal-total">₹0</span>
             </div>
 
             <div class="modal-name-field">
-                <label for="payer-name">Your Name <span style="color:#ef4444">*</span></label>
-                <input type="text" id="payer-name" placeholder="Enter your full name">
+                <label for="payer-name">Your Full Name <span style="color:#ef4444">*</span></label>
+                <input type="text" id="payer-name" placeholder="Enter your full name (e.g. Annamma Thomas)">
+            </div>
+
+            <div class="modal-name-field" style="margin-top: 1rem;">
+                <label for="payer-phone">Phone Number</label>
+                <input type="tel" id="payer-phone" placeholder="+91 98765 43210">
             </div>
 
             <div class="modal-actions">
@@ -618,11 +514,16 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="footer-logo">✝ St. George Church</div>
-                    <p style="opacity: 0.7;">A place of hope, a place of peace, a place of community.</p>
+                    <div class="footer-logo">✝ St. George Orthodox Church</div>
+                    <p class="footer-tagline">Puthuppally, Kottayam, Kerala<br>Rooted in faith. United in prayer. Serving with love.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">🌐</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                        <a href="#" aria-label="WhatsApp">💬</a>
+                    </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4>Navigate</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
@@ -631,22 +532,23 @@
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Resources</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="policy.html">Privacy Policy</a></li>
-                        <li><a href="policy.html">Terms of Service</a></li>
-                        <li><a href="policy.html">Public Policy</a></li>
+                        <li><a href="offering.html">Holy Qurbana — ₹10</a></li>
+                        <li><a href="offering.html">Novena — ₹25</a></li>
+                        <li><a href="offering.html">Holy Rosary — ₹10</a></li>
+                        <li><a href="offering.html">Holy Bible — ₹100</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <p style="opacity: 0.7;">St. George Church, Kerala</p>
-                    <p style="opacity: 0.7;">contact@stgeorgechurch.org</p>
-                    <p style="opacity: 0.7;">+91 98765 43210</p>
+                <div class="footer-links footer-contact">
+                    <h4>Contact</h4>
+                    <p>📍 Puthuppally, Kottayam, Kerala — 686 011</p>
+                    <p>✉️ contact@stgeorgechurch.org</p>
+                    <p>📞 +91 98765 43210</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 St. George Church. All rights reserved.</p>
+                <p>© 2026 St. George Orthodox Church, Kerala. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -654,12 +556,31 @@
     <script type="module" src="/main.js"></script>
     <script>
     // ──────────────────────────────────────────────
-    //  Offering Page — Services & Shop Logic
+    //  Tab Switching
+    // ──────────────────────────────────────────────
+    function switchTab(tab) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+        document.getElementById('tab-' + tab).classList.add('active');
+        const activeBtn = document.getElementById('tab-' + tab + '-btn');
+        activeBtn.classList.add('active');
+        if (tab === 'shop') activeBtn.classList.add('shop-tab');
+
+        // Check URL hash
+        if (tab === 'shop') history.replaceState(null, '', '#shop');
+        else history.replaceState(null, '', '#services');
+    }
+
+    // Auto-switch to shop tab if hash is #shop
+    if (window.location.hash === '#shop') switchTab('shop');
+
+    // ──────────────────────────────────────────────
+    //  Cart Logic
     // ──────────────────────────────────────────────
     (function () {
-        const cart = {}; // { itemId: { name, price, qty, type } }
+        const cart = {};
 
-        // ── Quantity Controls ──
         document.querySelectorAll('.item-card').forEach(card => {
             const id    = card.dataset.id;
             const name  = card.dataset.name;
@@ -696,39 +617,33 @@
         });
 
         // ── Cart Bar ──
-        const cartSummary     = document.getElementById('cart-summary');
-        const cartItemsLabel  = document.getElementById('cart-items-label');
-        const cartTotalDisp   = document.getElementById('cart-total-display');
+        const cartSummary    = document.getElementById('cart-summary');
+        const cartItemsLabel = document.getElementById('cart-items-label');
+        const cartTotalDisp  = document.getElementById('cart-total-display');
 
         function updateCartBar() {
             const items = Object.values(cart);
-            const totalQty  = items.reduce((s, i) => s + i.qty, 0);
-            const totalAmt  = items.reduce((s, i) => s + i.price * i.qty, 0);
+            const totalQty = items.reduce((s, i) => s + i.qty, 0);
+            const totalAmt = items.reduce((s, i) => s + i.price * i.qty, 0);
 
             cartItemsLabel.textContent = `${totalQty} item${totalQty !== 1 ? 's' : ''} selected`;
             cartTotalDisp.textContent  = `₹${totalAmt}`;
-
-            if (totalQty > 0) {
-                cartSummary.classList.add('visible');
-            } else {
-                cartSummary.classList.remove('visible');
-            }
+            cartSummary.classList.toggle('visible', totalQty > 0);
         }
 
         // ── Modal ──
-        const modalOverlay   = document.getElementById('modal-overlay');
-        const modalOrderItems= document.getElementById('modal-order-items');
-        const modalTotal     = document.getElementById('modal-total');
-        const reviewPayBtn   = document.getElementById('review-pay-btn');
-        const cancelBtn      = document.getElementById('modal-cancel-btn');
-        const confirmBtn     = document.getElementById('modal-confirm-btn');
-        const payerNameInput = document.getElementById('payer-name');
+        const modalOverlay    = document.getElementById('modal-overlay');
+        const modalOrderItems = document.getElementById('modal-order-items');
+        const modalTotal      = document.getElementById('modal-total');
+        const reviewPayBtn    = document.getElementById('review-pay-btn');
+        const cancelBtn       = document.getElementById('modal-cancel-btn');
+        const confirmBtn      = document.getElementById('modal-confirm-btn');
+        const payerNameInput  = document.getElementById('payer-name');
 
         function openModal() {
             const items = Object.values(cart);
             if (items.length === 0) return;
 
-            // Build order rows
             modalOrderItems.innerHTML = items.map(item => `
                 <div class="order-item-row">
                     <div>
@@ -742,6 +657,7 @@
             const total = items.reduce((s, i) => s + i.price * i.qty, 0);
             modalTotal.textContent = `₹${total}`;
             payerNameInput.value = '';
+            document.getElementById('payer-phone').value = '';
             modalOverlay.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
@@ -753,9 +669,7 @@
 
         reviewPayBtn.addEventListener('click', openModal);
         cancelBtn.addEventListener('click', closeModal);
-        modalOverlay.addEventListener('click', e => {
-            if (e.target === modalOverlay) closeModal();
-        });
+        modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
 
         // ── Confirm Payment ──
         confirmBtn.addEventListener('click', () => {
@@ -770,40 +684,40 @@
             const items = Object.values(cart);
             const total = items.reduce((s, i) => s + i.price * i.qty, 0);
 
-            // Log order for Razorpay integration
             console.log('Order:', { name, items, total });
 
             closeModal();
             showToast(`Thank you, ${name}! Redirecting to payment...`);
 
-            // ── Razorpay integration hook ──
+            // ── Razorpay Integration ──
             // Uncomment and configure once you have a Razorpay key:
             /*
             const options = {
                 key: 'YOUR_RAZORPAY_KEY_HERE',
-                amount: total * 100,           // in paise
+                amount: total * 100,
                 currency: 'INR',
-                name: 'St. George Church',
+                name: 'St. George Orthodox Church',
                 description: items.map(i => `${i.name} x${i.qty}`).join(', '),
+                image: '/logo.png',
                 handler: function(response) {
-                    showToast('Payment successful! ID: ' + response.razorpay_payment_id);
+                    showToast('Payment Successful! ID: ' + response.razorpay_payment_id);
                 },
-                prefill: { name },
-                theme: { color: '#0f172a' }
+                prefill: { name, contact: document.getElementById('payer-phone').value },
+                theme: { color: '#d4af37' }
             };
             const rzp = new Razorpay(options);
             rzp.open();
             */
         });
 
-        // ── Success Toast ──
+        // ── Toast ──
         const toastEl = document.getElementById('success-toast');
-
         function showToast(msg) {
             toastEl.textContent = msg;
             toastEl.classList.add('show');
             setTimeout(() => toastEl.classList.remove('show'), 4000);
         }
+
     })();
     </script>
 </body>

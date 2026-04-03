@@ -3,59 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Policies & Privacy | Faith Community Church</title>
+    <title>Policies &amp; Privacy | St. George Orthodox Church, Kerala</title>
+    <meta name="description" content="Privacy policy, refund policy, and terms of use for St. George Orthodox Church online services and sacred shop, Puthuppally, Kerala.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        .policy-page { padding-top: 130px; padding-bottom: 6rem; }
+
+        .policy-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 3rem;
+            align-items: start;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Sidebar TOC */
+        .policy-toc {
+            position: sticky;
+            top: 110px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(212,175,55,0.12);
+        }
+        .policy-toc h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .policy-toc ul { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+        .policy-toc a {
+            display: block;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+        .policy-toc a:hover { background: var(--accent-soft); color: #8a6d0f; }
+
+        /* Policy sections */
+        .policy-section {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            scroll-margin-top: 120px;
+        }
+        .policy-section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 2px solid rgba(212,175,55,0.15);
+        }
+        .policy-icon {
+            width: 48px; height: 48px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-glow);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .policy-section h2 { font-size: 1.3rem; margin: 0; }
+        .policy-section p { color: var(--text-muted); line-height: 1.85; margin-bottom: 1rem; font-size: 0.95rem; }
+        .policy-section p:last-child { margin-bottom: 0; }
+
+        .policy-list {
+            list-style: none;
+            margin: 1rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .policy-list li {
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .policy-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 800;
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+        .policy-list li strong { color: var(--primary-dark); }
+
+        .highlight-box {
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-glow);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.5rem;
+            margin: 1.2rem 0;
+            font-size: 0.92rem;
+            color: #7a5f10;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .policy-layout { grid-template-columns: 1fr; }
+            .policy-toc { position: static; }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container nav-wrapper">
-            <nav>
+    <header id="main-header">
+        <div class="container">
+            <nav class="nav-wrapper">
                 <a href="index.html" class="logo">
-                    <span style="color: var(--accent);">✝</span> Faith Community
+                    <span class="logo-cross">✝</span>
+                    <span class="logo-text">St. George <span class="logo-sub">Orthodox Church</span></span>
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="offering.html">Offering</a></li>
+                    <li><a href="offering.html">Services &amp; Shop</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <a href="offering.html" class="btn btn-primary">Give Now</a>
+                <div class="header-actions">
+                    <a href="offering.html" class="btn btn-accent btn-sm">🛒 Services &amp; Shop</a>
+                    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+                        <span></span><span></span>
+                    </button>
+                </div>
             </nav>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="offering.html">Services &amp; Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </header>
 
-    <main class="container" style="padding-top: 150px; padding-bottom: 5rem;">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h1 style="margin-bottom: 2rem;">Public Policy & Privacy</h1>
-            <p style="color: var(--text-muted); margin-bottom: 3rem;">Last updated: April 2, 2026</p>
+    <main class="container policy-page">
 
-            <section class="card" style="margin-bottom: 2rem;">
-                <h3>Privacy Policy</h3>
-                <p style="margin-top: 1.5rem; margin-bottom: 1rem;">At Faith Community Church, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, and safeguard the data you provide to us.</p>
-                <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
-                    <li><strong>Information Collection:</strong> We collect information such as name, email address, and phone number when you voluntarily provide it through our contact forms or donation portal.</li>
-                    <li><strong>Use of Information:</strong> We use your information to communicate with you, process donations, and provide you with updates about church activities. We never sell or rent your data to third parties.</li>
-                    <li><strong>Data Security:</strong> We implement a variety of security measures to maintain the safety of your personal information. Payment transactions are processed through secure, encrypted gateways.</li>
+        <!-- Page Header -->
+        <div class="text-center reveal" style="max-width: 640px; margin: 0 auto 4rem;">
+            <div class="badge">Legal &amp; Transparency</div>
+            <h1>Church <span class="playfair text-accent">Policies</span></h1>
+            <p style="color: var(--text-muted); margin-top: 1rem; font-size: 1rem;">Our commitment to transparency, privacy, and integrity in all services offered through St. George Orthodox Church, Kerala.</p>
+            <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.8rem;">Last updated: April 3, 2026</p>
+        </div>
+
+        <div class="policy-layout">
+
+            <!-- Sidebar TOC -->
+            <aside class="policy-toc">
+                <h4>Contents</h4>
+                <ul>
+                    <li><a href="#privacy">🔒 Privacy Policy</a></li>
+                    <li><a href="#payment">💳 Payment Policy</a></li>
+                    <li><a href="#refund">↩️ Refund Policy</a></li>
+                    <li><a href="#shipping">📦 Delivery Policy</a></li>
+                    <li><a href="#terms">📋 Terms of Use</a></li>
+                    <li><a href="#contact-policy">✉️ Contact Us</a></li>
                 </ul>
-            </section>
+            </aside>
 
-            <section class="card" style="margin-bottom: 2rem;">
-                <h3>Donation & Refund Policy</h3>
-                <p style="margin-top: 1.5rem; margin-bottom: 1rem;">Financial contributions to Faith Community Church are used to support our mission and ministry programs. As a general rule, all donations are non-refundable.</p>
-                <p style="margin-bottom: 1rem;">However, if you feel an error has been made in your donation processing (such as a duplicate charge), please contact our administrative office within 30 days. We will work with you to resolve the issue as quickly as possible.</p>
-            </section>
+            <!-- Main Content -->
+            <div>
 
-            <section class="card">
-                <h3>Terms of Use</h3>
-                <p style="margin-top: 1.5rem; margin-bottom: 1rem;">By using this website, you agree to comply with and be bound by the following terms and conditions of use. The content of this website is for your general information and use only. It is subject to change without notice.</p>
-                <p>Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offense.</p>
-            </section>
+                <!-- Privacy Policy -->
+                <section class="policy-section reveal" id="privacy">
+                    <div class="policy-section-header">
+                        <div class="policy-icon">🔒</div>
+                        <h2>Privacy Policy</h2>
+                    </div>
+                    <p>St. George Orthodox Church, Puthuppally, is committed to protecting the privacy of our parishioners and customers. This policy explains how we collect, use, and protect your personal information when you interact with our website and online services.</p>
 
-            <div style="margin-top: 3rem; text-align: center;">
-                <p>If you have any questions about our policies, please <a href="contact.html" style="color: var(--primary); font-weight: 600;">contact us</a>.</p>
+                    <ul class="policy-list">
+                        <li><strong>Information We Collect:</strong> When you book a service or purchase from our shop, we collect your name, phone number, email address, and payment details necessary to process your transaction.</li>
+                        <li><strong>How We Use Your Data:</strong> Your information is used solely to process your order, send confirmations, and communicate relevant parish updates. We do not sell or share your data with any third party.</li>
+                        <li><strong>Payment Data:</strong> All payment transactions are processed via Razorpay, a PCI-DSS compliant gateway. St. George Church does not store your card details on our servers.</li>
+                        <li><strong>Cookies:</strong> Our website uses minimal cookies to ensure smooth functionality. No tracking or advertising cookies are used.</li>
+                        <li><strong>Data Retention:</strong> Transaction records are retained for 7 years as required by Indian financial regulations. You may request deletion of your personal data at any time by contacting us.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        ✝ We handle your data with the same care and confidentiality we extend to all matters shared within our parish community.
+                    </div>
+                </section>
+
+                <!-- Payment Policy -->
+                <section class="policy-section reveal" id="payment">
+                    <div class="policy-section-header">
+                        <div class="policy-icon">💳</div>
+                        <h2>Payment Policy</h2>
+                    </div>
+                    <p>All payments made through our online portal for church services and sacred items are processed securely through Razorpay — one of India's most trusted payment gateways.</p>
+
+                    <ul class="policy-list">
+                        <li><strong>Accepted Methods:</strong> UPI, Debit/Credit Cards (Visa, Mastercard, RuPay), Net Banking, and popular wallets including Google Pay, PhonePe, and Paytm.</li>
+                        <li><strong>Currency:</strong> All transactions are in Indian Rupees (INR ₹).</li>
+                        <li><strong>Security:</strong> All payments are SSL-encrypted. We comply with RBI guidelines for online payments.</li>
+                        <li><strong>Confirmation:</strong> Upon successful payment you will receive a confirmation message and a digital receipt via email or SMS within a few minutes.</li>
+                        <li><strong>Receipts:</strong> Official receipts for all online offerings are available on request for tax and donation purposes.</li>
+                    </ul>
+                </section>
+
+                <!-- Refund Policy -->
+                <section class="policy-section reveal" id="refund">
+                    <div class="policy-section-header">
+                        <div class="policy-icon">↩️</div>
+                        <h2>Refund &amp; Cancellation Policy</h2>
+                    </div>
+                    <p>As St. George Orthodox Church is a religious non-profit institution, the following refund policy applies to all services and shop purchases.</p>
+
+                    <ul class="policy-list">
+                        <li><strong>Church Services (Qurbana, Novena, etc.):</strong> Payments for church services are non-refundable once the service has been offered. If you made an error in booking or paid in duplicate, contact us within 7 days for a review.</li>
+                        <li><strong>Sacred Shop Items:</strong> Physical items (Rosary, Bible, Prayer Books, etc.) may be returned within 7 days of receipt if they are unused and in original condition. Items that have been blessed and dispatched cannot be returned.</li>
+                        <li><strong>Duplicate Payments:</strong> If you were charged twice for the same order, we will issue a full refund for the duplicate charge within 5–7 business days after verification.</li>
+                        <li><strong>Failed Transactions:</strong> If your payment was debited but the order was not confirmed, the amount will be automatically reversed to your account within 5–7 business days by Razorpay.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        For all refund and cancellation requests, please email <strong>contact@stgeorgechurch.org</strong> or call <strong>+91 98765 43210</strong> with your order reference number.
+                    </div>
+                </section>
+
+                <!-- Delivery Policy -->
+                <section class="policy-section reveal" id="shipping">
+                    <div class="policy-section-header">
+                        <div class="policy-icon">📦</div>
+                        <h2>Delivery Policy (Sacred Shop)</h2>
+                    </div>
+                    <p>Physical sacred items purchased through our online shop are dispatched from the church premises in Puthuppally, Kottayam.</p>
+
+                    <ul class="policy-list">
+                        <li><strong>Delivery Area:</strong> We currently deliver within Kerala. For deliveries to other Indian states or abroad, please contact us directly.</li>
+                        <li><strong>Dispatch Time:</strong> Orders are processed and dispatched within 2–3 working days after payment confirmation.</li>
+                        <li><strong>Delivery Time:</strong> Standard delivery within Kerala takes 3–5 working days via India Post or reputed courier service.</li>
+                        <li><strong>Packaging:</strong> All sacred items are carefully and respectfully packaged. Items are blessed before dispatch.</li>
+                        <li><strong>Tracking:</strong> A tracking number will be shared via SMS/email once your order is shipped.</li>
+                        <li><strong>Delivery Charges:</strong> Free delivery for orders above ₹200. Standard delivery charge of ₹40 applies for orders below ₹200.</li>
+                    </ul>
+                </section>
+
+                <!-- Terms of Use -->
+                <section class="policy-section reveal" id="terms">
+                    <div class="policy-section-header">
+                        <div class="policy-icon">📋</div>
+                        <h2>Terms of Use</h2>
+                    </div>
+                    <p>By accessing and using the St. George Orthodox Church website and its online services, you agree to the following terms:</p>
+
+                    <ul class="policy-list">
+                        <li>This website and its contents are the property of St. George Orthodox Church, Puthuppally. Unauthorised reproduction of any content is prohibited.</li>
+                        <li>Online service bookings and shop purchases are intended for genuine devotional and religious purposes only.</li>
+                        <li>The church reserves the right to cancel or refuse any order that is found to be fraudulent, abusive, or contrary to the values of the parish.</li>
+                        <li>By submitting a service request or purchase, you confirm that the information provided is accurate and truthful.</li>
+                        <li>The church is not responsible for delays caused by courier services, natural events, or other circumstances outside our control.</li>
+                        <li>These terms may be updated periodically. Continued use of our services constitutes acceptance of the revised terms.</li>
+                    </ul>
+                </section>
+
+                <!-- Contact for Policy -->
+                <section class="policy-section reveal" id="contact-policy">
+                    <div class="policy-section-header">
+                        <div class="policy-icon">✉️</div>
+                        <h2>Policy Questions &amp; Contact</h2>
+                    </div>
+                    <p>If you have any questions, concerns, or requests related to these policies, our parish administration team is happy to assist.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                        <div style="background: var(--bg-cream); border-radius: var(--radius-md); padding: 1.2rem; border: 1px solid rgba(212,175,55,0.15);">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✉️</div>
+                            <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 0.3rem;">Email</div>
+                            <a href="mailto:contact@stgeorgechurch.org" style="color: var(--primary); font-size: 0.88rem; font-weight: 600;">contact@stgeorgechurch.org</a>
+                        </div>
+                        <div style="background: var(--bg-cream); border-radius: var(--radius-md); padding: 1.2rem; border: 1px solid rgba(212,175,55,0.15);">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📞</div>
+                            <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 0.3rem;">Phone</div>
+                            <a href="tel:+919876543210" style="color: var(--primary); font-size: 0.88rem; font-weight: 600;">+91 98765 43210</a>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <a href="contact.html" class="btn btn-primary">Go to Contact Page →</a>
+                    </div>
+                </section>
+
             </div>
         </div>
     </main>
@@ -64,35 +312,41 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="footer-logo">✝ Faith Community</div>
-                    <p style="opacity: 0.7;">A place of hope, a place of peace, a place of community.</p>
+                    <div class="footer-logo">✝ St. George Orthodox Church</div>
+                    <p class="footer-tagline">Puthuppally, Kottayam, Kerala<br>Rooted in faith. United in prayer. Serving with love.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">🌐</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                        <a href="#" aria-label="WhatsApp">💬</a>
+                    </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4>Navigate</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="offering.html">Make an Offering</a></li>
+                        <li><a href="offering.html">Services &amp; Shop</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Resources</h4>
+                    <h4>Policies</h4>
                     <ul>
-                        <li><a href="policy.html">Privacy Policy</a></li>
-                        <li><a href="policy.html">Terms of Service</a></li>
-                        <li><a href="policy.html">Public Policy</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#payment">Payment Policy</a></li>
+                        <li><a href="#refund">Refund Policy</a></li>
+                        <li><a href="#terms">Terms of Use</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <p style="opacity: 0.7;">123 Faith Street, Grace City</p>
-                    <p style="opacity: 0.7;">contact@faithcommunity.org</p>
-                    <p style="opacity: 0.7;">+1 (555) 123-4567</p>
+                <div class="footer-links footer-contact">
+                    <h4>Contact</h4>
+                    <p>📍 Puthuppally, Kottayam, Kerala — 686 011</p>
+                    <p>✉️ contact@stgeorgechurch.org</p>
+                    <p>📞 +91 98765 43210</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Faith Community Church. All rights reserved.</p>
+                <p>© 2026 St. George Orthodox Church, Kerala. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -3,64 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Faith Community Church</title>
+    <title>About Us | St. George Orthodox Church, Kerala</title>
+    <meta name="description" content="Learn about the history, clergy, and mission of St. George Orthodox Church, Puthuppally, Kerala — serving the faithful since 1902.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container nav-wrapper">
-            <nav>
+    <header id="main-header">
+        <div class="container">
+            <nav class="nav-wrapper">
                 <a href="index.html" class="logo">
-                    <span style="color: var(--accent);">✝</span> Faith Community
+                    <span class="logo-cross">✝</span>
+                    <span class="logo-text">St. George <span class="logo-sub">Orthodox Church</span></span>
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="offering.html">Offering</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="offering.html">Services &amp; Shop</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <a href="offering.html" class="btn btn-primary">Give Now</a>
+                <div class="header-actions">
+                    <a href="offering.html" class="btn btn-accent btn-sm">🛒 Services &amp; Shop</a>
+                    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+                        <span></span><span></span>
+                    </button>
+                </div>
             </nav>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="offering.html">Services &amp; Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </header>
 
-    <main>
-        <section class="container" style="padding-top: 150px;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-                <div style="border-radius: 30px; overflow: hidden; box-shadow: var(--shadow);">
-                    <img src="https://images.unsplash.com/photo-1548625361-195fe576b6bc?auto=format&fit=crop&q=80&w=800" alt="Church Community" style="width: 100%; height: 100%; object-fit: cover;">
+    <main class="about-page">
+        <!-- Hero -->
+        <section class="about-hero">
+            <div class="container about-hero-grid">
+                <div class="about-img-wrap animate-fade">
+                    <img src="https://images.unsplash.com/photo-1548625361-195fe57a55fb?auto=format&fit=crop&q=80&w=900" alt="St. George Church Interior">
                 </div>
-                <div>
-                    <h4 style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 1rem;">Our Story</h4>
-                    <h1 style="margin-bottom: 1.5rem;">Founded on Faith, Growing in Love</h1>
-                    <p style="margin-bottom: 1.5rem;">Faith Community Church was founded in 1995 with a handful of families who shared a simple vision: to create a place where anyone could find hope, healing, and a sense of belonging.</p>
-                    <p style="margin-bottom: 1.5rem;">Over the last three decades, our church has grown from a living room gathering to a diverse community of believers who are passionate about sharing God's love through practical service and meaningful worship.</p>
+                <div class="animate-slide">
+                    <div class="badge">Our Heritage</div>
+                    <h1>Founded on Faith, <span class="playfair text-accent">Serving Since 1902</span></h1>
+                    <p style="margin-top: 1.5rem; margin-bottom: 1.5rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.85;">
+                        St. George Orthodox Church in Puthuppally, Kottayam, stands as one of the oldest and most revered parishes of the Malankara Orthodox Syrian Church. For over a century, this sacred space has been a beacon of faith, prayer, and community for thousands of families across Kerala and the diaspora.
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.85; margin-bottom: 2rem;">
+                        Consecrated in 1902 and built on the foundations laid by our forefathers, the church has grown from a small congregation into a vibrant parish community that carries on the ancient traditions of the Syriac Orthodox liturgy while embracing the needs of a modern world.
+                    </p>
+                    <a href="contact.html" class="btn btn-primary">Contact the Parish →</a>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="container">
+                <div class="about-stat-grid reveal">
+                    <div class="about-stat">
+                        <strong>1902</strong>
+                        <span>Year Established</span>
+                    </div>
+                    <div class="about-stat">
+                        <strong>2,000+</strong>
+                        <span>Registered Parishioners</span>
+                    </div>
+                    <div class="about-stat">
+                        <strong>120+</strong>
+                        <span>Years of Faithful Service</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section style="background: var(--white); padding: 5rem 0;">
+        <!-- Core Values -->
+        <section class="values-section">
             <div class="container">
-                <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                    <h2>Our Core Values</h2>
-                    <p>These principles guide everything we do as a community.</p>
+                <div class="text-center reveal">
+                    <div class="badge">What We Believe</div>
+                    <h2 style="margin-bottom: 0.8rem;">Our <span class="playfair text-accent">Core Values</span></h2>
+                    <p style="color: var(--text-muted); max-width: 580px; margin: 0 auto;">These principles are the foundation of everything we do as a parish community rooted in the Orthodox Christian tradition.</p>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                    <div style="text-align: center;">
-                        <h3 style="margin-bottom: 1rem;">Worship</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);">We believe that worship is more than just Sunday songs—it's a lifestyle of gratitude and devotion to God.</p>
+                <div class="values-grid reveal">
+                    <div class="value-card">
+                        <div class="value-icon">⛪</div>
+                        <h3>Liturgical Worship</h3>
+                        <p>The Holy Qurbana (Divine Liturgy) is the heart of our faith. We worship in the ancient Syriac tradition, connecting us to the earliest Christians.</p>
                     </div>
-                    <div style="text-align: center;">
-                        <h3 style="margin-bottom: 1rem;">Service</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);">A faith that doesn't serve isn't complete. We are committed to rolling up our sleeves and helping those in need.</p>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Community Service</h3>
+                        <p>Faith without action is incomplete. We actively serve the poor, the sick, and the vulnerable through our parish welfare programs.</p>
                     </div>
-                    <div style="text-align: center;">
-                        <h3 style="margin-bottom: 1rem;">Community</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);">No one is meant to walk through life alone. We foster relationships where we can support and encourage one each other.</p>
+                    <div class="value-card">
+                        <div class="value-icon">📖</div>
+                        <h3>Biblical Teaching</h3>
+                        <p>Rooted in Holy Scripture and the Holy Tradition of the Church, we nurture each member in sound Orthodox Christian doctrine and living.</p>
                     </div>
+                    <div class="value-card">
+                        <div class="value-icon">🙏</div>
+                        <h3>Intercessory Prayer</h3>
+                        <p>We believe in the power of prayer — individual, corporate, and intercessory. Our priests offer prayers daily for the intentions of our parishioners.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">👶</div>
+                        <h3>Faith Formation</h3>
+                        <p>From Sunday School to youth fellowship, we invest in the spiritual formation of every generation to carry the torch of Orthodox faith forward.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🌍</div>
+                        <h3>Global Mission</h3>
+                        <p>We reach out beyond our parish borders, supporting missions and diaspora communities around the world who carry our Keralan Orthodox heritage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clergy -->
+        <section class="clergy-section">
+            <div class="container">
+                <div class="text-center reveal">
+                    <div class="badge">Our Shepherds</div>
+                    <h2>Meet Our <span class="playfair text-accent">Clergy</span></h2>
+                    <p style="color: var(--text-muted); margin-top: 0.8rem; max-width: 500px; margin: 0.8rem auto 0;">Dedicated priests who shepherd our flock with love, wisdom, and devotion to God and His people.</p>
+                </div>
+                <div class="clergy-grid reveal">
+                    <div class="clergy-card">
+                        <div class="clergy-photo">✝</div>
+                        <div class="clergy-info">
+                            <h3>Rev. Fr. George Varghese</h3>
+                            <p style="color: var(--accent); font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Vicar</p>
+                            <p>Leading the parish with 25 years of pastoral experience and a deep commitment to the Orthodox tradition.</p>
+                        </div>
+                    </div>
+                    <div class="clergy-card">
+                        <div class="clergy-photo" style="background: linear-gradient(135deg, #374151, #1f2937);">✝</div>
+                        <div class="clergy-info">
+                            <h3>Rev. Fr. Thomas Kurian</h3>
+                            <p style="color: var(--accent); font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Assistant Vicar</p>
+                            <p>Serving the parish's youth ministry, Sunday School, and pastoral care with energy and compassion.</p>
+                        </div>
+                    </div>
+                    <div class="clergy-card">
+                        <div class="clergy-photo" style="background: linear-gradient(135deg, #1e3a5f, #0f172a);">✝</div>
+                        <div class="clergy-info">
+                            <h3>Rev. Fr. Mathew Cherian</h3>
+                            <p style="color: var(--accent); font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Deacon</p>
+                            <p>Assisting in liturgical services and playing a key role in the sacramental life of the parish community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="feast-banner">
+            <div class="container feast-content">
+                <div>
+                    <h2 style="color: var(--white);">Come, <span class="playfair" style="color: var(--accent);">Join Our Family</span></h2>
+                    <p style="opacity: 0.8; margin-top: 0.8rem; max-width: 480px;">Whether you are a lifelong member or visiting for the first time, every person is welcome in the house of God.</p>
+                </div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="offering.html" class="btn btn-accent">Book a Service</a>
+                    <a href="contact.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: var(--white);">Get in Touch</a>
                 </div>
             </div>
         </section>
@@ -70,35 +180,41 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="footer-logo">✝ Faith Community</div>
-                    <p style="opacity: 0.7;">A place of hope, a place of peace, a place of community.</p>
+                    <div class="footer-logo">✝ St. George Orthodox Church</div>
+                    <p class="footer-tagline">Puthuppally, Kottayam, Kerala<br>Rooted in faith. United in prayer. Serving with love.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">🌐</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                        <a href="#" aria-label="WhatsApp">💬</a>
+                    </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4>Navigate</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="offering.html">Make an Offering</a></li>
+                        <li><a href="offering.html">Services &amp; Shop</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Resources</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="policy.html">Privacy Policy</a></li>
-                        <li><a href="policy.html">Terms of Service</a></li>
-                        <li><a href="policy.html">Public Policy</a></li>
+                        <li><a href="offering.html">Holy Qurbana</a></li>
+                        <li><a href="offering.html">Novena</a></li>
+                        <li><a href="offering.html">Sacred Shop</a></li>
+                        <li><a href="policy.html">Policies</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <p style="opacity: 0.7;">123 Faith Street, Grace City</p>
-                    <p style="opacity: 0.7;">contact@faithcommunity.org</p>
-                    <p style="opacity: 0.7;">+1 (555) 123-4567</p>
+                <div class="footer-links footer-contact">
+                    <h4>Contact</h4>
+                    <p>📍 Puthuppally, Kottayam, Kerala — 686 011</p>
+                    <p>✉️ contact@stgeorgechurch.org</p>
+                    <p>📞 +91 98765 43210</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Faith Community Church. All rights reserved.</p>
+                <p>© 2026 St. George Orthodox Church, Kerala. All rights reserved.</p>
             </div>
         </div>
     </footer>

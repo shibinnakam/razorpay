@@ -3,135 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faith Community Church | Welcome Home</title>
-    <meta name="description" content="Welcome to Faith Community Church. Join us in worship, community, and giving.">
+    <title>St. George Orthodox Church | Kerala</title>
+    <meta name="description" content="Welcome to St. George Orthodox Church, Kerala. Join us in worship, prayer, and community. Book church services and purchase sacred items online.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header id="main-header">
         <div class="container">
             <nav class="nav-wrapper">
                 <a href="index.html" class="logo">
-                    <span class="text-accent">✝</span> Faith Community
+                    <span class="logo-cross">✝</span>
+                    <span class="logo-text">St. George <span class="logo-sub">Orthodox Church</span></span>
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="offering.html">Offering</a></li>
+                    <li><a href="offering.html">Services &amp; Shop</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <div class="header-actions">
-                    <a href="offering.html" class="btn btn-primary btn-sm">Give Now</a>
-                    <button class="mobile-menu-btn" aria-label="Menu">
+                    <a href="offering.html" class="btn btn-accent btn-sm">🛒 Services &amp; Shop</a>
+                    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
                         <span></span>
                         <span></span>
                     </button>
                 </div>
             </nav>
         </div>
+        <!-- Mobile Dropdown -->
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="offering.html">Services &amp; Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </header>
 
     <main>
+        <!-- ═══ HERO ═══ -->
         <section class="hero">
+            <div class="hero-bg-pattern"></div>
             <div class="container hero-grid">
                 <div class="hero-content animate-slide">
-                    <div class="badge">Join us this Sunday @ 10:00 AM</div>
-                    <h1>Faith, Love & <span class="text-accent">Community</span></h1>
-                    <p>Experience a place where you truly belong. We are dedicated to loving God and serving our community through faith-driven action.</p>
+                    <div class="badge">✝ Serving the Community Since 1902</div>
+                    <h1 class="hero-title">St. George <span class="playfair text-accent">Orthodox</span> Church</h1>
+                    <p>Rooted in faith, united in prayer, and serving the people of Kerala with love and devotion through every season of life.</p>
                     <div class="hero-btns">
-                        <a href="offering.html" class="btn btn-primary">Make an Offering</a>
-                        <a href="about.html" class="btn btn-outline">Our Story</a>
+                        <a href="offering.html" class="btn btn-accent">🙏 Book a Service</a>
+                        <a href="about.html" class="btn btn-outline">Our History →</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat"><strong>120+</strong><span>Years of Faith</span></div>
+                        <div class="stat-div"></div>
+                        <div class="stat"><strong>2,000+</strong><span>Parishioners</span></div>
+                        <div class="stat-div"></div>
+                        <div class="stat"><strong>Daily</strong><span>Holy Qurbana</span></div>
                     </div>
                 </div>
                 <div class="hero-image-wrapper animate-fade">
                     <div class="hero-image-card">
-                        <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&q=80&w=1200" alt="Church Sanctuary">
+                        <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&q=80&w=1200" alt="St. George Church Sanctuary">
                         <div class="image-accent"></div>
+                        <div class="hero-card-badge">
+                            <span>🕯️ Daily Qurbana</span>
+                            <small>6:00 AM every morning</small>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ═══ QUICK LINKS ═══ -->
+        <section class="quick-links-section">
+            <div class="container">
+                <div class="quick-links-grid">
+                    <a href="offering.html" class="quick-link-card ql-services">
+                        <div class="ql-icon">⛪</div>
+                        <h3>Book a Service</h3>
+                        <p>Holy Qurbana, Novena, Memorial Services & more</p>
+                        <span class="ql-arrow">→</span>
+                    </a>
+                    <a href="offering.html#shop" class="quick-link-card ql-shop">
+                        <div class="ql-icon">📿</div>
+                        <h3>Sacred Shop</h3>
+                        <p>Rosary, Holy Bible, Prayer Books & Blessed Items</p>
+                        <span class="ql-arrow">→</span>
+                    </a>
+                    <a href="contact.html" class="quick-link-card ql-prayer">
+                        <div class="ql-icon">🙏</div>
+                        <h3>Prayer Requests</h3>
+                        <p>Submit your intentions for our priests to pray</p>
+                        <span class="ql-arrow">→</span>
+                    </a>
+                    <a href="about.html" class="quick-link-card ql-about">
+                        <div class="ql-icon">📖</div>
+                        <h3>About Our Church</h3>
+                        <p>History, mission, clergy and parish information</p>
+                        <span class="ql-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ WORSHIP SCHEDULE ═══ -->
         <section class="visit-us reveal">
             <div class="container visit-grid">
                 <div class="visit-content">
-                    <div class="badge">Visit Us</div>
-                    <h2>Gather With Us This Week</h2>
-                    <p>We believe in the power of community and worship. Whether you're a long-time member or visiting for the first time, you're always welcome.</p>
-                    
+                    <div class="badge">Join Us in Worship</div>
+                    <h2>Sunday Holy <span class="text-accent playfair">Qurbana</span></h2>
+                    <p>The Holy Eucharist is the heart of our worship. All faithful are welcome to gather together as one family in Christ.</p>
+
                     <div class="schedule">
                         <div class="schedule-item">
-                            <div class="day">Sunday Morning</div>
-                            <div class="time">10:00 AM — Main Worship Service</div>
+                            <div>
+                                <div class="day">Daily Morning Qurbana</div>
+                                <div class="time-sub">Monday – Saturday</div>
+                            </div>
+                            <div class="time">6:00 AM</div>
                         </div>
                         <div class="schedule-item">
-                            <div class="day">Wednesday Night</div>
-                            <div class="time">07:00 PM — Bible Study & Prayer</div>
+                            <div>
+                                <div class="day">Sunday Holy Qurbana</div>
+                                <div class="time-sub">Main Eucharistic Service</div>
+                            </div>
+                            <div class="time">8:00 AM</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div>
+                                <div class="day">Sunday Family Service</div>
+                                <div class="time-sub">With Sunday School</div>
+                            </div>
+                            <div class="time">10:30 AM</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div>
+                                <div class="day">Friday Novena</div>
+                                <div class="time-sub">Special intercessions</div>
+                            </div>
+                            <div class="time">6:30 PM</div>
                         </div>
                     </div>
 
                     <div class="location-card">
                         <div class="icon">📍</div>
                         <div>
-                            <h4>Our Location</h4>
-                            <p>123 Faith Street, Grace City, GC 54321</p>
-                            <a href="https://maps.google.com" target="_blank" class="text-accent" style="font-weight: 600;">Get Directions →</a>
+                            <h4>St. George Orthodox Church</h4>
+                            <p>Puthuppally, Kottayam District, Kerala — 686 011</p>
+                            <a href="https://maps.google.com" target="_blank" class="text-accent" style="font-weight: 700;">Get Directions →</a>
                         </div>
                     </div>
                 </div>
                 <div class="visit-image">
-                    <img src="https://images.unsplash.com/photo-1548625361-195fe57a55fb?auto=format&fit=crop&q=80&w=800" alt="Church Community">
+                    <img src="https://images.unsplash.com/photo-1548625361-195fe57a55fb?auto=format&fit=crop&q=80&w=800" alt="Church Community Worship">
+                    <div class="visit-image-badge">
+                        <span>🕯️ Come, Let Us Worship</span>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- ═══ SERVICES PREVIEW ═══ -->
+        <section class="services-preview reveal" style="background: var(--bg-light);">
+            <div class="container">
+                <div class="section-header text-center" style="max-width: 700px; margin: 0 auto 3.5rem;">
+                    <div class="badge">Services &amp; Sacred Items</div>
+                    <h2>Book a Service or <span class="text-accent playfair">Purchase Online</span></h2>
+                    <p>Support our parish and request special services directly through our secure online portal.</p>
+                </div>
+                <div class="services-preview-grid">
+                    <div class="sp-card sp-service">
+                        <div class="sp-header">
+                            <span class="sp-tag">Church Service</span>
+                            <span class="sp-icon">⛪</span>
+                        </div>
+                        <h3>Holy Qurbana</h3>
+                        <p>Request the Holy Eucharist to be celebrated on your behalf, in memory of a loved one, or for a special intention.</p>
+                        <div class="sp-footer">
+                            <span class="sp-price">₹10 <small>/ offering</small></span>
+                            <a href="offering.html" class="btn btn-primary btn-sm">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="sp-card sp-service">
+                        <div class="sp-header">
+                            <span class="sp-tag">Church Service</span>
+                            <span class="sp-icon">🕯️</span>
+                        </div>
+                        <h3>Novena</h3>
+                        <p>Nine days of dedicated prayer and intercessions offered by our priests specifically for your stated intentions.</p>
+                        <div class="sp-footer">
+                            <span class="sp-price">₹25 <small>/ novena</small></span>
+                            <a href="offering.html" class="btn btn-primary btn-sm">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="sp-card sp-shop">
+                        <div class="sp-header">
+                            <span class="sp-tag shop-tag">Sacred Shop</span>
+                            <span class="sp-icon">📿</span>
+                        </div>
+                        <h3>Holy Rosary</h3>
+                        <p>Beautifully blessed rosary beads, hand-crafted and consecrated by our priests for daily devotion.</p>
+                        <div class="sp-footer">
+                            <span class="sp-price">₹10 <small>/ piece</small></span>
+                            <a href="offering.html" class="btn btn-shop btn-sm">Buy Now</a>
+                        </div>
+                    </div>
+                    <div class="sp-card sp-shop">
+                        <div class="sp-header">
+                            <span class="sp-tag shop-tag">Sacred Shop</span>
+                            <span class="sp-icon">📖</span>
+                        </div>
+                        <h3>Holy Bible</h3>
+                        <p>Malayalam / English hardcover Holy Bible, blessed and distributed directly by the church.</p>
+                        <div class="sp-footer">
+                            <span class="sp-price">₹100 <small>/ copy</small></span>
+                            <a href="offering.html" class="btn btn-shop btn-sm">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 3rem;">
+                    <a href="offering.html" class="btn btn-primary">View All Services &amp; Items →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ MINISTRIES ═══ -->
         <section class="growth-tracks reveal" style="background: var(--primary); color: var(--white);">
             <div class="container">
                 <div class="section-header text-center" style="max-width: 700px; margin: 0 auto 4rem;">
-                    <h2 style="color: var(--white); margin-bottom: 1.5rem;">Ready to Grow?</h2>
-                    <p style="opacity: 0.8; font-size: 1.1rem;">Discover your purpose and find your place in our community through our specialized growth tracks.</p>
+                    <h2 style="color: var(--white); margin-bottom: 1.5rem;">Our <span style="color: var(--accent);" class="playfair">Ministries</span></h2>
+                    <p style="opacity: 0.8; font-size: 1.1rem;">Serving God through every stage of life. Find your calling within our parish community.</p>
                 </div>
                 <div class="track-grid">
                     <div class="track-card">
                         <div class="track-number">01</div>
-                        <h3>New Here?</h3>
-                        <p>Join our Welcome Home lunch to meet the team and hear our story.</p>
-                        <a href="about.html" class="btn btn-outline" style="border-color: var(--white); color: var(--white);">Learn More</a>
+                        <h3>Sunday School</h3>
+                        <p>Nurturing the faith of our children and youth with biblical teachings every Sunday morning.</p>
+                        <a href="contact.html" class="btn btn-outline" style="border-color: var(--white); color: var(--white);">Learn More</a>
                     </div>
                     <div class="track-card">
                         <div class="track-number">02</div>
-                        <h3>Get Involved</h3>
-                        <p>Discover your unique gifts and start serving in one of our many ministries.</p>
-                        <a href="contact.html" class="btn btn-outline" style="border-color: var(--white); color: var(--white);">Volunteer</a>
+                        <h3>Vanitha Samajam</h3>
+                        <p>Our women's fellowship, dedicated to service, prayer, and supporting families in need.</p>
+                        <a href="contact.html" class="btn btn-outline" style="border-color: var(--white); color: var(--white);">Get Involved</a>
                     </div>
                     <div class="track-card">
                         <div class="track-number">03</div>
-                        <h3>Small Groups</h3>
-                        <p>Faith wasn't meant to be lived alone. Join a group and grow together.</p>
-                        <a href="contact.html" class="btn btn-outline" style="border-color: var(--white); color: var(--white);">Join a Group</a>
+                        <h3>Youth Fellowship</h3>
+                        <p>Empowering the next generation through faith, fellowship, and community service projects.</p>
+                        <a href="contact.html" class="btn btn-outline" style="border-color: var(--white); color: var(--white);">Join Us</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ═══ TESTIMONIALS ═══ -->
         <section class="testimonials reveal">
             <div class="container">
                 <div class="section-header text-center" style="margin-bottom: 4rem;">
-                    <div class="badge">Community Stories</div>
-                    <h2>Why We Love It Here</h2>
+                    <div class="badge">Parish Voices</div>
+                    <h2>Words from Our <span class="text-accent playfair">Community</span></h2>
                 </div>
                 <div class="testimonial-slider">
                     <div class="testimonial-card">
-                        <div class="quote">"Finding this church was a turning point for my family. The community is so welcoming and the message is always relevant."</div>
+                        <div class="quote-mark">"</div>
+                        <div class="quote">St. George Church has been the centre of my family's spiritual life for three generations. The priests and community here are truly a blessing from God.</div>
                         <div class="author">
-                            <strong>Sarah Jenkins</strong>
-                            <span>Member since 2022</span>
+                            <strong>Annamma Varghese</strong>
+                            <span>Parishioner since 1978</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-mark">"</div>
+                        <div class="quote">The online service booking made it so easy for me to request a Novena for my late father. The priests' dedication and the quick response meant so much to our family.</div>
+                        <div class="author">
+                            <strong>Biju Thomas</strong>
+                            <span>Member since 2010</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-mark">"</div>
+                        <div class="quote">Visiting this church during the feast of St. George was one of the most spiritually uplifting experiences of my life. A truly holy place.</div>
+                        <div class="author">
+                            <strong>Merlin Jose</strong>
+                            <span>Devotee, Ernakulam</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- ═══ FEAST DAY BANNER ═══ -->
+        <section class="feast-banner">
+            <div class="container feast-content">
+                <div>
+                    <div class="badge" style="background: rgba(212,175,55,0.2); color: var(--accent); border-color: var(--accent-glow);">Upcoming</div>
+                    <h2 style="color: var(--white); margin-top: 1rem;">Feast of <span class="playfair" style="color: var(--accent);">St. George</span></h2>
+                    <p style="opacity: 0.8; margin-top: 0.8rem; max-width: 480px;">Join thousands of faithful for our annual Perunnal celebration — April 23rd. Special Holy Qurbana, procession, and community feast.</p>
+                </div>
+                <a href="contact.html" class="btn btn-accent" style="white-space: nowrap; font-size: 1.05rem; padding: 16px 40px;">Register for Perunnal →</a>
             </div>
         </section>
     </main>
@@ -140,35 +314,41 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="footer-logo">✝ Faith Community</div>
-                    <p class="footer-tagline">A place of hope, peace, and enduring community. Everyone is welcome here.</p>
+                    <div class="footer-logo">✝ St. George Orthodox Church</div>
+                    <p class="footer-tagline">Puthuppally, Kottayam, Kerala<br>Rooted in faith. United in prayer. Serving with love.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">🌐</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                        <a href="#" aria-label="WhatsApp">💬</a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <h4>Navigate</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="offering.html">Make an Offering</a></li>
+                        <li><a href="offering.html">Services &amp; Shop</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Resources</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="policy.html">Privacy Policy</a></li>
-                        <li><a href="policy.html">Terms of Service</a></li>
-                        <li><a href="policy.html">Public Policy</a></li>
+                        <li><a href="offering.html">Holy Qurbana</a></li>
+                        <li><a href="offering.html">Novena</a></li>
+                        <li><a href="offering.html">Sacred Shop</a></li>
+                        <li><a href="policy.html">Policies</a></li>
                     </ul>
                 </div>
                 <div class="footer-links footer-contact">
-                    <h4>Connect</h4>
-                    <p>📍 123 Faith Street, Grace City</p>
-                    <p>✉️ contact@faithcommunity.org</p>
-                    <p>📞 +1 (555) 123-4567</p>
+                    <h4>Contact</h4>
+                    <p>📍 Puthuppally, Kottayam, Kerala — 686 011</p>
+                    <p>✉️ contact@stgeorgechurch.org</p>
+                    <p>📞 +91 98765 43210</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Faith Community Church. All rights reserved. Made with ♥ and faith.</p>
+                <p>© 2026 St. George Orthodox Church, Kerala. All rights reserved. Made with ✝ and devotion.</p>
             </div>
         </div>
     </footer>
